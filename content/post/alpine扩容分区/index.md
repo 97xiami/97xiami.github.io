@@ -6,6 +6,7 @@ categories:
     - 教程
 tags:
     - alpine
+weight: 1
 ---
 
 # 安装resize2fs和growpart
