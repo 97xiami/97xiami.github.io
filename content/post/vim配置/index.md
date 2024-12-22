@@ -6,6 +6,7 @@ categories:
     - 教程
 tags:
     - vim配置
+weight: 1
 ---
 
 ```.vimrc
