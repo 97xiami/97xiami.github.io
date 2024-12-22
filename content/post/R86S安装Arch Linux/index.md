@@ -6,6 +6,7 @@ categories:
     - 教程
 tags:
     - Arch Linux
+weight: 1
 ---
 
 # 禁用reflector
