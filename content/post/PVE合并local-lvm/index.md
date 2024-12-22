@@ -6,7 +6,7 @@ categories:
     - 教程
 tags:
     - PVE
-weight: 1 
+weight: 1
 ---
 
 # 删除local-lvm并合并到local
