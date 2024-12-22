@@ -115,3 +115,9 @@ exit            # 退回安装环境
 umount -R /mnt  # 卸载新分区
 reboot          # 重启
 ```
+
+# 重启后启动dhcpcd联网
+```bash
+systemctl enable dhcpcd
+ststemctl start dhcpcd
+```
