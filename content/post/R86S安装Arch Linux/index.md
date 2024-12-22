@@ -20,18 +20,18 @@ echo "Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch" > /etc/pacm
 
 # 同步时间
 ```bash
-timedatectl set-ntp true      # 开启ntp时间同步
+timedatectl set-ntp true  # 开启ntp时间同步
 timedatectl set-timezone PRC  # 设置时区为中国
-timedatectl status            # 查看时间
+timedatectl status  # 查看时间
 ```
 
 # 转换磁盘类型为GPT
 ```bash
 lsblk  # 显示分区信息
-parted /dev/nvme0n1   # 执行parted，进行分区操作
-(parted)mktable       # 输入mktable
-New disk lebel type?  # 输入gpt，如果有数据会有Warining，输入yes
-(parted)quit          # 输入quit退出
+parted /dev/nvme0n1  # 执行parted，进行分区操作
+(parted)mktable  # 输入mktable
+(parted)New disk lebel type?  # 输入gpt，如果有数据会有Warining，输入yes
+(parted)quit  # 输入quit退出
 ```
 
 # 分区
@@ -50,8 +50,8 @@ mkfs.ext4 /dev/nvme0n1p2  # 格式化其他分区为EXT4格式
 
 # 挂载分区
 ```bash
-mount /dev/nvme0n1p2 /mnt      # 先挂载根分区
-mkdir /mnt/efi                 # 创建efi目录
+mount /dev/nvme0n1p2 /mnt  # 先挂载根分区
+mkdir /mnt/efi  # 创建efi目录
 mount /dev/nvme0n1p1 /mnt/efi  # 挂载efi分区
 ```
 
@@ -73,7 +73,7 @@ arch-chroot /mnt
 # 设置时区并写入硬件
 ```bash
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  # 创建Shanghai时区的软链接
-hwclock --systohc                                        # 时间信息写入硬件
+hwclock --systohc  # 时间信息写入硬件
 ```
 
 # 设置local本地化
