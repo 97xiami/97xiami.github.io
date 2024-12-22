@@ -14,11 +14,3 @@ url = "https://github.com/97xiami"
 
 [social.params]
 icon = "brand-github"
-
-[[social]]
-identifier = "docker"
-name = "Dockerhub"
-url = "https://hub.docker.com/u/xiami110"
-
-[social.params]
-icon = "brand-docker"
