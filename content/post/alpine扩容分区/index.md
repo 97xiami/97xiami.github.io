@@ -2,8 +2,6 @@
 title: alpine扩容分区
 slug: alpine扩容分区
 date: 2024-12-22 18:00:00+0800
-categories:
-    - 教程
 tags:
     - alpine
 weight: 1
