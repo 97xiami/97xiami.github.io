@@ -1,6 +1,6 @@
 ---
-title: PVE删除local-lvm，并合并到local
-slug: PVE删除local-lvm，并合并到local
+title: PVE合并local-lvm和local
+slug: PVE合并local-lvm和local
 date: 2024-12-22 17:57:00+0800
 categories:
     - 教程
