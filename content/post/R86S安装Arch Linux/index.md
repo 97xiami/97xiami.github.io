@@ -2,8 +2,6 @@
 title: R86S安装Arch Linux
 slug: R86S安装Arch Linux
 date: 2024-12-22 14:57:00+0800
-categories:
-    - 教程
 tags:
     - Arch Linux
 weight: 1
