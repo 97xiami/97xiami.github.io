@@ -104,20 +104,40 @@ pacman -S intel-ucode
 
 # 安装引导程序
 ```bash
-pacman -S grub efibootmgr                                                   # grub是启动引导器，efibootmgr被 grub 脚本用来将启动项写入 NVRAM。
+pacman -S grub efibootmgr  # grub是启动引导器，efibootmgr被 grub 脚本用来将启动项写入 NVRAM。
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB  # 配置grub信息
-grub-mkconfig -o /boot/grub/grub.cfg                                        # 将grub配置写入
+sed -i "s/loglevel=3 quiet/loglevel=5 nowatchdog quiet/g" /etc/default/grub  # loglevel改为5是为了更方便排错，nowatchdog可以加快开关机速度
+grub-mkconfig -o /boot/grub/grub.cfg  # 将grub配置写入
 ```
 
 # 安装完成，重启
 ```bash
-exit            # 退回安装环境
+exit  # 退回安装环境
 umount -R /mnt  # 卸载新分区
-reboot          # 重启
+reboot  # 重启
 ```
 
 # 重启后启动dhcpcd联网
 ```bash
 systemctl enable dhcpcd
 ststemctl start dhcpcd
+```
+
+# 配置swapfile
+```bash
+dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress  # 创建4G的交换空间 大小根据需要自定
+chmod 600 /swapfile # 设置正确的权限
+mkswap /swapfile # 格式化swap文件
+swapon /swapfile # 启用swap文件
+echo "/swapfile none swap defaults 0 0" >> /etc/fstab  # 将swapfile写入fstab开机自动挂载
+```
+
+# 安装Intel集显驱动
+```bash
+pacman -S mesa vulkan-intel
+```
+
+# 安装smartmontools查看硬盘信息
+```bash
+pacman -S smartmontools
 ```
