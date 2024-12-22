@@ -2,8 +2,6 @@
 title: vim配置
 slug: vim配置
 date: 2024-12-22 15:57:00+0800
-categories:
-    - 教程
 tags:
     - vim配置
 weight: 1
