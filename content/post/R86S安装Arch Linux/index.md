@@ -124,7 +124,7 @@ ststemctl start dhcpcd
 
 # 配置swapfile
 ```bash
-dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress  # 创建4G的交换空间 大小根据需要自定
+dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress  # 创建2G的交换空间 大小根据需要自定
 chmod 600 /swapfile # 设置正确的权限
 mkswap /swapfile # 格式化swap文件
 swapon /swapfile # 启用swap文件
@@ -133,7 +133,7 @@ echo "/swapfile none swap defaults 0 0" >> /etc/fstab  # 将swapfile写入fstab�
 
 # 安装Intel集显驱动
 ```bash
-pacman -S mesa vulkan-intel
+pacman -S mesa
 ```
 
 # 安装smartmontools查看硬盘信息
