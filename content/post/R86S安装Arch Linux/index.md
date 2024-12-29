@@ -6,6 +6,27 @@ tags:
     - Arch Linux
 weight: 1
 ---
+- [禁用reflector](#禁用reflector)
+- [配置中科大镜像源](#配置中科大镜像源)
+- [同步时间](#同步时间)
+- [转换磁盘类型为GPT](#转换磁盘类型为gpt)
+- [分区](#分区)
+- [格式化分区](#格式化分区)
+- [挂载分区](#挂载分区)
+- [安装基础包](#安装基础包)
+- [生成fstab文件](#生成fstab文件)
+- [chroot进/mnt](#chroot进mnt)
+- [设置时区并写入硬件](#设置时区并写入硬件)
+- [设置local本地化](#设置local本地化)
+- [设置主机名和hosts](#设置主机名和hosts)
+- [设置root密码](#设置root密码)
+- [安装CPU微码](#安装cpu微码)
+- [安装引导程序](#安装引导程序)
+- [安装完成，重启](#安装完成重启)
+- [重启后启动dhcpcd联网](#重启后启动dhcpcd联网)
+- [配置swapfile](#配置swapfile)
+- [安装Intel集显驱动](#安装intel集显驱动)
+- [安装smartmontools查看硬盘信息](#安装smartmontools查看硬盘信息)
 
 # 禁用reflector
 ```bash
