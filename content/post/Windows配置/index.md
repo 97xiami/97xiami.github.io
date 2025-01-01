@@ -12,6 +12,7 @@ weight: 1
 - [删除Program启动项](#删除program启动项)
 - [删除链接不同网络时提示的网络12345...](#删除链接不同网络时提示的网络12345)
 - [通过vbs脚本自启程序](#通过vbs脚本自启程序)
+- [允许挂载http的WebDAV](#允许挂载http的webdav)
 
 # 显示`netplwiz`中的自动登录
 ```regedit
@@ -77,4 +78,12 @@ Function CheckAndStartProcess(processName, command)
     End If
     WScript.Sleep 5000
 End Function
+```
+
+# 允许挂载http的WebDAV
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters]
+"BasicAuthLevel"=dword:00000002
 ```
