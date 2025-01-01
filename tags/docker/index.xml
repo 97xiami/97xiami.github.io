@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 瞎写</title><link>https://97xiami.github.io/tags/docker/</link><description>Recent content in Docker on 瞎写</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 28 Dec 2024 18:00:00 +0800</lastBuildDate><atom:link href="https://97xiami.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>备份Docker镜像</title><link>https://97xiami.github.io/p/%E5%A4%87%E4%BB%BDdocker%E9%95%9C%E5%83%8F/</link><pubDate>Sat, 28 Dec 2024 18:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/%E5%A4%87%E4%BB%BDdocker%E9%95%9C%E5%83%8F/</guid><description>&lt;h1 id="备份本机所有docker镜像">备份本机所有Docker镜像
+&lt;/h1>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAGES&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>docker images --format &lt;span class="s2">&amp;#34;{{.Repository}}:{{.Tag}}&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> IMAGE in &lt;span class="nv">$IMAGES&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IMAGE_NAME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$IMAGE&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/:/_/g&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/\//-/g&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker save -o &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">IMAGE_NAME&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">.tar&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$IMAGE&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="还原当前目录下所有docker镜像">还原当前目录下所有Docker镜像
+&lt;/h1>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAGES&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>ls *.tar&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> IMAGE in &lt;span class="nv">$IMAGES&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker load -i &lt;span class="nv">$IMAGE&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Docker使用Nftables</title><link>https://97xiami.github.io/p/docker%E4%BD%BF%E7%94%A8nftables/</link><pubDate>Sat, 28 Dec 2024 17:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/docker%E4%BD%BF%E7%94%A8nftables/</guid><description>&lt;h1 id="配置etcdockerdaemonjson禁用iptables">配置&lt;code>/etc/docker/daemon.json&lt;/code>禁用iptables
+&lt;/h1>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;iptables&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="自定义docker虚拟网卡">自定义docker虚拟网卡
+&lt;/h1>&lt;blockquote>
+&lt;p>自行修改为喜欢的ip段和网卡名称，
+&lt;code>mynet&lt;/code>是docker容器使用时用的名称，
+&lt;code>user0&lt;/code>是宿主机执行&lt;code>ip addr&lt;/code>显示的网卡名称，
+因为容器默认创建的网卡名都是&lt;code>br-xxxxxxxx&lt;/code>，所以要指定名称&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker network create mynet --driver bridge --subnet 172.10.0.0/16 --gateway 172.10.0.1 -o com.docker.network.bridge.name&lt;span class="o">=&lt;/span>user0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>docker-compose.yml配置&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">nginx&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mynet&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ipv4_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">172.10.0.2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mynet&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">external&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="nftables配置">nftables配置
+&lt;/h1>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">#!/usr/bin/nft -f
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flush ruleset
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 默认网卡docker0的IP段，一般情况不用修改
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">define docker0_ip = 172.17.0.0/16
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 自定义的网卡名称及IP段
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">define docker_if = &amp;#34;user0&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">define user0_ip = 172.10.0.0/16
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">table ip nat {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain PREROUTING {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type nat hook prerouting priority dstnat; policy accept;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 目标地址为本地地址，则转发到DOCKER链表
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> fib daddr type local jump DOCKER
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain OUTPUT {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type nat hook output priority dstnat; policy accept;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 目标地址为本地地址且不在127.0.0.0/8中，则转发到DOCKER链表
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip daddr != 127.0.0.0/8 fib daddr type local jump DOCKER
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain POSTROUTING {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type nat hook postrouting priority srcnat; policy accept;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 伪装地址使容器能够访问外部网络
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname != &amp;#34;docker0&amp;#34; ip saddr $docker0_ip masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname != $docker_if ip saddr $user0_ip masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 伪装容器内部通讯时的地址
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip saddr $docker0_ip ip daddr $docker0_ip masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip saddr $user0_ip ip daddr $user0_ip masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain DOCKER {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行docker网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname &amp;#34;docker0&amp;#34; return
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname $docker_if return
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 设置容器端口转发
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname != $docker_if tcp dport 80 dnat to 172.10.0.2:8080
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">table ip filter {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain INPUT {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type filter hook input priority filter; policy drop;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行lo网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname &amp;#34;lo&amp;#34; accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行默认docker0和自定义虚拟网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname &amp;#34;docker0&amp;#34; accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname $docker_if accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行已建立连接和已关联的连接
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ct state established, related accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行icmp请求，限速每秒100个包
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip protocol icmp icmp type { destination-unreachable, time-exceeded, parameter-problem } limit rate 100/second accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain FORWARD {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type filter hook forward priority filter; policy drop;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行docker网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname &amp;#34;docker0&amp;#34; ct state established,related accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname &amp;#34;docker0&amp;#34; iifname != &amp;#34;docker0&amp;#34; ip daddr $docker0_ip accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname &amp;#34;docker0&amp;#34; accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行自定义docker虚拟网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname $docker_if ct state established,related accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname $docker_if iifname != $docker_if ip daddr $user0_ip accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname $docker_if accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>有需要可以将规则设置为更加详细的指定端口放行&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">chain POSTROUTING {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip saddr 172.10.0.2 ip daddr 172.10.0.2 tcp dport 8080 masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chain FORWARD {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname $docker_if iifname != $docker_if ip daddr 172.10.0.2 tcp dport 8080 accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>
