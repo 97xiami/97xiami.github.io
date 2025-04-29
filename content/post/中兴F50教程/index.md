@@ -6,6 +6,7 @@ tags:
     - 中兴F50
 weight: 1
 ---
+
 ## 性能模式
 
 访问[http://192.168.0.1](https://192.168.0.1)，登录后访问[http://192.168.0.1/index.html#performance_mode](http://192.168.0.1/index.html#performance_mode)
