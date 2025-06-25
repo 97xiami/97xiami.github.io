@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>中兴F50 on 瞎写</title><link>https://97xiami.github.io/tags/%E4%B8%AD%E5%85%B4f50/</link><description>Recent content in 中兴F50 on 瞎写</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 29 Apr 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://97xiami.github.io/tags/%E4%B8%AD%E5%85%B4f50/index.xml" rel="self" type="application/rss+xml"/><item><title>中兴F50教程</title><link>https://97xiami.github.io/p/%E4%B8%AD%E5%85%B4f50%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 29 Apr 2025 10:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/%E4%B8%AD%E5%85%B4f50%E6%95%99%E7%A8%8B/</guid><description>&lt;h2 id="性能模式">性能模式
+&lt;/h2>&lt;p>访问&lt;a class="link" href="https://192.168.0.1" target="_blank" rel="noopener"
+>http://192.168.0.1&lt;/a>，登录后访问&lt;a class="link" href="http://192.168.0.1/index.html#performance_mode" target="_blank" rel="noopener"
+>http://192.168.0.1/index.html#performance_mode&lt;/a>&lt;/p>
+&lt;h2 id="adb调试">adb调试
+&lt;/h2>&lt;p>访问&lt;a class="link" href="https://192.168.0.1" target="_blank" rel="noopener"
+>http://192.168.0.1&lt;/a>，登录后访问&lt;a class="link" href="http://192.168.0.1/index.html#usb_port" target="_blank" rel="noopener"
+>http://192.168.0.1/index.html#usb_port&lt;/a>&lt;/p>
+&lt;h2 id="下载escrcpy">下载&lt;a class="link" href="https://github.com/viarotel-org/escrcpy" target="_blank" rel="noopener"
+>Escrcpy&lt;/a>
+&lt;/h2>&lt;h2 id="拨号输入83781进入工程模式切换到debuglog点击send-at-command在at-command输入框中输入命令后点击send">拨号输入*#&lt;em>#83781#&lt;/em>#*，进入工程模式，切换到DEBUG&amp;amp;LOG，点击Send AT Command，在AT Command输入框中输入命令后点击SEND
+&lt;/h2>&lt;blockquote>
+&lt;p>Channel的0是卡一，1是卡二
+AT+SPIMEI=0的0是卡一，1是卡二&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">查询sim卡签约速率：AT+CGEQOSRDP=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">修改串号：AT+SPIMEI=0,&amp;#34;要修改的IMEI&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">查询串号：AT+SPIMEI?
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>
