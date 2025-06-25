@@ -77,7 +77,7 @@ mount /dev/nvme0n1p1 /mnt/efi  # 挂载efi分区
 
 # 安装基础包
 ```bash
-pacstrap /mnt base linux-lts linux-lts-headers linux-firmware dhcpcd vim bash-completion # 这里使用lts内核，有无线网卡加上iwd
+pacstrap /mnt base linux-lts linux-lts-headers linux-firmware-intel linux-firmware-whence dhcpcd vim bash-completion # 这里使用lts内核，有无线网卡加上iwd
 ```
 
 # 生成fstab文件
