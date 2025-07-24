@@ -15,7 +15,7 @@ weight: 1
 - [允许挂载http的WebDAV](#允许挂载http的webdav)
 
 # 隐藏资源管理器的七个文件夹
-```regedit
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag]
@@ -63,7 +63,7 @@ Windows Registry Editor Version 5.00
 ```
 
 # 显示`netplwiz`中的自动登录
-```regedit
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device]
@@ -71,7 +71,7 @@ Windows Registry Editor Version 5.00
 ```
 
 # 自带输入法增加小鹤双拼
-```regedit
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Software\Microsoft\InputMethod\Settings\CHS]
@@ -79,7 +79,7 @@ Windows Registry Editor Version 5.00
 ```
 
 # RDP开启60帧
-```regedit
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations]
@@ -87,7 +87,7 @@ Windows Registry Editor Version 5.00
 ```
 
 # 删除Program启动项
-```regedit
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run]
@@ -95,7 +95,7 @@ Windows Registry Editor Version 5.00
 ```
 
 # 删除链接不同网络时提示的网络12345...
-```regedit
+```reg
 Windows Registry Editor Version 5.00
 
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles]
