@@ -1,8 +1,9 @@
 ---
-title: 中兴F50教程
-slug: 中兴F50教程
+title: 中兴U30air/F50教程
+slug: 中兴U30air/F50教程
 date: 2025-04-29 10:00:00+0800
 tags:
+    - 中兴U30air
     - 中兴F50
 weight: 1
 ---
@@ -17,7 +18,7 @@ weight: 1
 
 ## 下载[Escrcpy](https://github.com/viarotel-org/escrcpy)
 
-## 拨号输入*#*#83781#*#*，进入工程模式，切换到DEBUG&LOG，点击Send AT Command，在AT Command输入框中输入命令后点击SEND
+## 拨号输入`*#*#83781#*#*`，进入工程模式，切换到`DEBUG&LOG`，点击`Send AT Command`，在`AT Command`输入框中输入命令后点击`SEND`
 
 > Channel的0是卡一，1是卡二
 > AT+SPIMEI=0的0是卡一，1是卡二
