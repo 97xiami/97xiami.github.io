@@ -7,22 +7,27 @@ tags:
 weight: 1
 ---
 
-# 配置`/etc/docker/daemon.json`禁用iptables
+## 配置`/etc/docker/daemon.json`禁用iptables
+
 ```json
 {
   "iptables": false
 }
 ```
 
-# 自定义docker虚拟网卡
+## 自定义docker虚拟网卡
+>
 > 自行修改为喜欢的ip段和网卡名称，
 > `mynet`是docker容器使用时用的名称，
 > `user0`是宿主机执行`ip addr`显示的网卡名称，
 > 因为容器默认创建的网卡名都是`br-xxxxxxxx`，所以要指定名称
+
 ```bash
 docker network create mynet --driver bridge --subnet 172.10.0.0/16 --gateway 172.10.0.1 -o com.docker.network.bridge.name=user0
 ```
+
 > docker-compose.yml配置
+
 ```yml
 services:
   nginx:
@@ -36,7 +41,8 @@ networks:
     external: true
 ```
 
-# nftables配置
+## nftables配置
+
 ```nftables
 #!/usr/bin/nft -f
 flush ruleset
@@ -104,7 +110,9 @@ table ip filter {
   }
 }
 ```
+
 > 有需要可以将规则设置为更加详细的指定端口放行
+
 ```nftables
 chain POSTROUTING {
   ...
