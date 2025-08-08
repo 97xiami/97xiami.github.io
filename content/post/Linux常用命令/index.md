@@ -3,9 +3,18 @@ title: Linux常用命令
 slug: Linux常用命令
 date: 2024-12-29 17:00:00+0800
 tags:
-    - Linux
+  - Linux
 weight: 1
 ---
+
+- [awk](#awk)
+- [du](#du)
+- [grep](#grep)
+- [journalctl](#journalctl)
+- [sed](#sed)
+- [sort](#sort)
+- [ss](#ss)
+- [tar](#tar)
 - [vim](#vim)
 
 ## awk

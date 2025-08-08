@@ -3,12 +3,33 @@ title: R86S安装Arch Linux
 slug: R86S安装Arch Linux
 date: 2024-12-22 14:57:00+0800
 tags:
-    - Arch Linux
+  - Arch Linux
 weight: 1
 ---
-- [安装smartmontools查看硬盘信息](#安装smartmontools查看硬盘信息)
 
-## 禁用reflector
+- [禁用 reflector](#禁用-reflector)
+- [配置中科大镜像源](#配置中科大镜像源)
+- [同步时间](#同步时间)
+- [转换磁盘类型为 GPT](#转换磁盘类型为-gpt)
+- [分区](#分区)
+- [格式化分区](#格式化分区)
+- [挂载分区](#挂载分区)
+- [安装基础包](#安装基础包)
+- [生成 fstab 文件](#生成-fstab-文件)
+- [chroot 进/mnt](#chroot-进mnt)
+- [设置时区并写入硬件](#设置时区并写入硬件)
+- [设置 local 本地化](#设置-local-本地化)
+- [设置主机名和 hosts](#设置主机名和-hosts)
+- [设置 root 密码](#设置-root-密码)
+- [安装 CPU 微码](#安装-cpu-微码)
+- [安装引导程序](#安装引导程序)
+- [安装完成，重启](#安装完成重启)
+- [重启后启动 dhcpcd 联网](#重启后启动-dhcpcd-联网)
+- [配置 swapfile](#配置-swapfile)
+- [安装 Intel 集显驱动](#安装-intel-集显驱动)
+- [安装 smartmontools 查看硬盘信息](#安装-smartmontools-查看硬盘信息)
+
+## 禁用 reflector
 
 ```bash
 systemctl stop reflector
@@ -28,7 +49,7 @@ timedatectl set-timezone PRC  # 设置时区为中国
 timedatectl status  # 查看时间
 ```
 
-## 转换磁盘类型为GPT
+## 转换磁盘类型为 GPT
 
 ```bash
 lsblk  # 显示分区信息
@@ -68,13 +89,13 @@ mount /dev/nvme0n1p1 /mnt/efi  # 挂载efi分区
 pacstrap /mnt base linux-lts linux-lts-headers linux-firmware-intel linux-firmware-whence dhcpcd vim bash-completion # 这里使用lts内核，有无线网卡加上iwd
 ```
 
-## 生成fstab文件
+## 生成 fstab 文件
 
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-## chroot进/mnt
+## chroot 进/mnt
 
 ```bash
 arch-chroot /mnt
@@ -87,7 +108,7 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  # 创建Shanghai时区�
 hwclock --systohc  # 时间信息写入硬件
 ```
 
-## 设置local本地化
+## 设置 local 本地化
 
 ```bash
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
@@ -96,7 +117,7 @@ locale-gen
 echo 'LANG=en_US.UTF-8'  > /etc/locale.conf
 ```
 
-## 设置主机名和hosts
+## 设置主机名和 hosts
 
 ```bash
 echo "arch" > /etc/hostname
@@ -105,13 +126,13 @@ echo "::1        localhost" >> /etc/hosts
 echo "127.0.1.1  arch" >> /etc/hosts
 ```
 
-## 设置root密码
+## 设置 root 密码
 
 ```bash
 passwd root
 ```
 
-## 安装CPU微码
+## 安装 CPU 微码
 
 ```bash
 pacman -S intel-ucode
@@ -134,14 +155,14 @@ umount -R /mnt  # 卸载新分区
 reboot  # 重启
 ```
 
-## 重启后启动dhcpcd联网
+## 重启后启动 dhcpcd 联网
 
 ```bash
 systemctl enable dhcpcd
 ststemctl start dhcpcd
 ```
 
-## 配置swapfile
+## 配置 swapfile
 
 ```bash
 dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress  # 创建2G的交换空间 大小根据需要自定
@@ -151,13 +172,13 @@ swapon /swapfile # 启用swap文件
 echo "/swapfile none swap defaults 0 0" >> /etc/fstab  # 将swapfile写入fstab开机自动挂载
 ```
 
-## 安装Intel集显驱动
+## 安装 Intel 集显驱动
 
 ```bash
 pacman -S mesa
 ```
 
-## 安装smartmontools查看硬盘信息
+## 安装 smartmontools 查看硬盘信息
 
 ```bash
 pacman -S smartmontools
