@@ -1,0 +1,1494 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>瞎写</title><link>https://97xiami.github.io/</link><description>Recent content on 瞎写</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 30 Jul 2025 13:00:00 +0800</lastBuildDate><atom:link href="https://97xiami.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows Server 2022配置</title><link>https://97xiami.github.io/p/windows-server-2022%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 30 Jul 2025 13:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/windows-server-2022%E9%85%8D%E7%BD%AE/</guid><description>&lt;h2 id="组策略配置">组策略配置
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>配置项&lt;/th>
+&lt;th>路径&lt;/th>
+&lt;th>设置值&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>密码永不过期&lt;/td>
+&lt;td>计算机配置\Windows 设置\安全设置\账户策略\密码策略\密码最长使用期限&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>允许未登录直接关机&lt;/td>
+&lt;td>计算机配置\Windows 设置\安全设置\本地策略\安全选项\关机: 允许系统在未登录的情况下关闭&lt;/td>
+&lt;td>已启用&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>无须按 Ctrl+Alt+Del&lt;/td>
+&lt;td>计算机配置\Windows 设置\安全设置\本地策略\安全选项\交互式登录：无须按 Ctrl+Alt+Del&lt;/td>
+&lt;td>已启用&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>关机不用选择原因&lt;/td>
+&lt;td>计算机配置\管理模板\系统\显示“关闭事件跟踪程序”&lt;/td>
+&lt;td>已禁用&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>开机不显示服务管理器&lt;/td>
+&lt;td>计算机配置\管理模板\系统\在登录时不显示“管理你的服务器”页&lt;/td>
+&lt;td>已禁用&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>中兴U30air/F50教程</title><link>https://97xiami.github.io/p/%E4%B8%AD%E5%85%B4u30air/f50%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 29 Apr 2025 10:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/%E4%B8%AD%E5%85%B4u30air/f50%E6%95%99%E7%A8%8B/</guid><description>&lt;h2 id="性能模式">性能模式
+&lt;/h2>&lt;p>访问&lt;a class="link" href="https://192.168.0.1" target="_blank" rel="noopener"
+>http://192.168.0.1&lt;/a>，登录后访问&lt;a class="link" href="http://192.168.0.1/index.html#performance_mode" target="_blank" rel="noopener"
+>http://192.168.0.1/index.html#performance_mode&lt;/a>&lt;/p>
+&lt;h2 id="adb-调试">adb 调试
+&lt;/h2>&lt;p>访问&lt;a class="link" href="https://192.168.0.1" target="_blank" rel="noopener"
+>http://192.168.0.1&lt;/a>，登录后访问&lt;a class="link" href="http://192.168.0.1/index.html#usb_port" target="_blank" rel="noopener"
+>http://192.168.0.1/index.html#usb_port&lt;/a>&lt;/p>
+&lt;h2 id="下载escrcpy">下载&lt;a class="link" href="https://github.com/viarotel-org/escrcpy" target="_blank" rel="noopener"
+>Escrcpy&lt;/a>
+&lt;/h2>&lt;h2 id="拨号输入83781进入工程模式切换到debuglog点击send-at-command在at-command输入框中输入命令后点击send">拨号输入&lt;code>*#*#83781#*#*&lt;/code>，进入工程模式，切换到&lt;code>DEBUG&amp;amp;LOG&lt;/code>，点击&lt;code>Send AT Command&lt;/code>，在&lt;code>AT Command&lt;/code>输入框中输入命令后点击&lt;code>SEND&lt;/code>
+&lt;/h2>&lt;blockquote>
+&lt;p>Channel 的 0 是卡一，1 是卡二
+AT+SPIMEI=0 的 0 是卡一，1 是卡二&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">查询sim卡签约速率：AT+CGEQOSRDP=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">修改串号：AT+SPIMEI=0,&amp;#34;要修改的IMEI&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">查询串号：AT+SPIMEI?
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>R86S安装Windows Server 2022的驱动</title><link>https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/</link><pubDate>Mon, 30 Dec 2024 13:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/</guid><description>&lt;h2 id="从-intel-官网下载驱动除网卡驱动外直接解压安装">从 intel 官网下载驱动，除网卡驱动外直接解压安装
+&lt;/h2>&lt;p>&lt;a class="link" href="https://www.intel.cn/content/www/cn/zh/download/838943" target="_blank" rel="noopener"
+>网卡驱动&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.intel.cn/content/www/cn/zh/download/776137" target="_blank" rel="noopener"
+>显卡驱动&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.intel.cn/content/www/cn/zh/download/682431" target="_blank" rel="noopener"
+>英特尔 ® 管理引擎 驱动&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.intel.cn/content/www/cn/zh/download/19347" target="_blank" rel="noopener"
+>芯片组 INF 实用程序&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>还剩一个未知设备，硬件 ID：&lt;code>ACPI\VEN_INT&amp;amp;DEV_34C8&lt;/code>，不安装无影响，需要安装自行搜索&lt;code>INT34C8&lt;/code>,或者直接用这个&lt;a class="link" href="Intel-FORCED-SerialIO-10x64-30.100.2133.4_JSL-drp.zip" >驱动&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;h2 id="网卡驱动安装方法">网卡驱动安装方法
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>解压驱动，内容如图&lt;/p>
+&lt;p>&lt;img src="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-1.png"
+width="617"
+height="335"
+srcset="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-1_hu_a9505e916630b9af.png 480w, https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-1_hu_3ec9131bf54befa3.png 1024w"
+loading="lazy"
+alt="alt text"
+class="gallery-image"
+data-flex-grow="184"
+data-flex-basis="442px"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>CMD 运行&lt;code>compmgmt.msc&lt;/code>打开计算机管理&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>找到&lt;code>设备管理器&lt;/code>-&lt;code>其他设备&lt;/code>，会显示三个带感叹号的&lt;code>以太网控制器&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-2.png"
+width="381"
+height="487"
+srcset="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-2_hu_c09a1a0ecc487ead.png 480w, https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-2_hu_977f7eda51b3b1e5.png 1024w"
+loading="lazy"
+alt="alt text"
+class="gallery-image"
+data-flex-grow="78"
+data-flex-basis="187px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>我这里已经安装了一个,所以只显示两个&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>双击其中一个打开&lt;/p>
+&lt;p>&lt;img src="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-3.png"
+width="461"
+height="579"
+srcset="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-3_hu_25a0773ec8646f88.png 480w, https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-3_hu_4a302112e18e68a9.png 1024w"
+loading="lazy"
+alt="alt text"
+class="gallery-image"
+data-flex-grow="79"
+data-flex-basis="191px"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>中间位置会显示&lt;code>PCI插槽4&lt;/code>,&lt;code>PCI插槽5&lt;/code>和&lt;code>PCI插槽6&lt;/code>,分别对应物理接口的&lt;code>ETH0&lt;/code>,&lt;code>ETH1&lt;/code>和&lt;code>ETH2&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>PCI插槽4&lt;/code>选择&lt;code>更新驱动程序&lt;/code>，选择&lt;code>浏览我的电脑以查找驱动程序&lt;/code>，选择&lt;code>让我从计算机的可用驱动列表中选取&lt;/code>，选择&lt;code>显示所有设备&lt;/code>，选择&lt;code>下一步&lt;/code>，选择&lt;code>从磁盘安装&lt;/code>，选择&lt;code>浏览&lt;/code>，从解压路径找到&lt;code>PRO1000/Winx64/WS2022/e1r.inf&lt;/code>打开,然后找到&lt;code>Intel(R) I210 Gigabit Network Connection&lt;/code>，选择&lt;code>下一步&lt;/code>，会弹出&lt;code>不推荐安装警告&lt;/code>，选择&lt;code>是&lt;/code>安装&lt;/p>
+&lt;p>&lt;img src="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-4.png"
+width="455"
+height="213"
+srcset="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-4_hu_14a4216b4456e226.png 480w, https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-4_hu_830df71fd902f91f.png 1024w"
+loading="lazy"
+alt="alt text"
+class="gallery-image"
+data-flex-grow="213"
+data-flex-basis="512px"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>PCI插槽5和PCI插槽6&lt;/code>选择&lt;code>PRO2500/Winx64/WS2022/e2f.inf&lt;/code>，然后找到&lt;code>Intel(R) Ethernet Controller (3) I225-LM&lt;/code>,选择&lt;code>下一步&lt;/code>，会弹出&lt;code>不推荐安装警告&lt;/code>，选择&lt;code>是&lt;/code>安装&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>Shell下载GitHub的Release</title><link>https://97xiami.github.io/p/shell%E4%B8%8B%E8%BD%BDgithub%E7%9A%84release/</link><pubDate>Mon, 30 Dec 2024 13:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/shell%E4%B8%8B%E8%BD%BDgithub%E7%9A%84release/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;span class="lnt">66
+&lt;/span>&lt;span class="lnt">67
+&lt;/span>&lt;span class="lnt">68
+&lt;/span>&lt;span class="lnt">69
+&lt;/span>&lt;span class="lnt">70
+&lt;/span>&lt;span class="lnt">71
+&lt;/span>&lt;span class="lnt">72
+&lt;/span>&lt;span class="lnt">73
+&lt;/span>&lt;span class="lnt">74
+&lt;/span>&lt;span class="lnt">75
+&lt;/span>&lt;span class="lnt">76
+&lt;/span>&lt;span class="lnt">77
+&lt;/span>&lt;span class="lnt">78
+&lt;/span>&lt;span class="lnt">79
+&lt;/span>&lt;span class="lnt">80
+&lt;/span>&lt;span class="lnt">81
+&lt;/span>&lt;span class="lnt">82
+&lt;/span>&lt;span class="lnt">83
+&lt;/span>&lt;span class="lnt">84
+&lt;/span>&lt;span class="lnt">85
+&lt;/span>&lt;span class="lnt">86
+&lt;/span>&lt;span class="lnt">87
+&lt;/span>&lt;span class="lnt">88
+&lt;/span>&lt;span class="lnt">89
+&lt;/span>&lt;span class="lnt">90
+&lt;/span>&lt;span class="lnt">91
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 定义仓库数组&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">repositories&lt;/span>&lt;span class="o">=(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 作者/项目名:版本tag:要下载的文件名正则表达式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;AdguardTeam/AdGuardHome:v0.107.48:AdGuardHome_linux_amd64\.tar\.gz&lt;/span>$&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;VSCodium/vscodium:1.88.1.24104:VSCodiumSetup-x64-[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+\.exe&lt;/span>$&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 在此添加更多仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 文件下载位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">download_dir&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/root/downloads&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 检查依赖工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> ! &lt;span class="nb">command&lt;/span> -v curl &lt;span class="p">&amp;amp;&lt;/span>&amp;gt; /dev/null &lt;span class="o">||&lt;/span> ! &lt;span class="nb">command&lt;/span> -v wget &lt;span class="p">&amp;amp;&lt;/span>&amp;gt; /dev/null&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;请安装 curl 和 wget 工具。&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">exit&lt;/span> &lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 循环遍历每个仓库并下载&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> repo_info in &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">repositories&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 添加随机延时&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sleep &lt;span class="k">$((&lt;/span>RANDOM &lt;span class="o">%&lt;/span> &lt;span class="m">5&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="k">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 获取仓库信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IFS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;:&amp;#39;&lt;/span> &lt;span class="nb">read&lt;/span> -ra repo_data &lt;span class="o">&amp;lt;&amp;lt;&amp;lt;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$repo_info&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">repo_url&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">repo_data&lt;/span>&lt;span class="p">[0]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">local_tag&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">repo_data&lt;/span>&lt;span class="p">[1]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">filename&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">repo_data&lt;/span>&lt;span class="p">[2]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$local_tag&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;未获取到本地版本号&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 获取GitHub API信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">github_api&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>curl -s &lt;span class="s2">&amp;#34;https://api.github.com/repos/&lt;/span>&lt;span class="nv">$repo_url&lt;/span>&lt;span class="s2">/releases/latest&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$github_api&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">github_api&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>curl -s &lt;span class="s2">&amp;#34;https://api.github.com/repos/&lt;/span>&lt;span class="nv">$repo_url&lt;/span>&lt;span class="s2">/releases/latest&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$github_api&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;无法获取GitHub API信息&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 获取最新版本号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">remote_tag&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$github_api&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> grep -o &lt;span class="s1">&amp;#39;&amp;#34;tag_name&amp;#34;: &amp;#34;[^&amp;#34;]*&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> cut -d &lt;span class="s1">&amp;#39;&amp;#34;&amp;#39;&lt;/span> -f 4&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$remote_tag&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">remote_tag&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$github_api&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;/tag_name/{print $4;exit}&amp;#39;&lt;/span> &lt;span class="nv">FS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;[&amp;#34;&amp;#34;]&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$remote_tag&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;未获取到版本号&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 打印本地和最新版本号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;最新版本号 for &lt;/span>&lt;span class="nv">$repo_url&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="nv">$remote_tag&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;本地版本号 for &lt;/span>&lt;span class="nv">$repo_url&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="nv">$local_tag&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$local_tag&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$remote_tag&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;无更新 for &lt;/span>&lt;span class="nv">$repo_url&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 删除旧版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> find &lt;span class="nv">$download_dir&lt;/span> -type f -regex &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$download_dir&lt;/span>&lt;span class="s2">\/&lt;/span>&lt;span class="nv">$filename&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> -exec rm -f &lt;span class="o">{}&lt;/span> &lt;span class="se">\;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 获取下载链接&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">download_url&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$github_api&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> grep -o &lt;span class="s1">&amp;#39;&amp;#34;browser_download_url&amp;#34;: &amp;#34;https://github.com[^&amp;#34;]*&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> cut -d &lt;span class="s1">&amp;#39;&amp;#34;&amp;#39;&lt;/span> -f &lt;span class="m">4&lt;/span> &lt;span class="p">|&lt;/span> grep -E &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$filename&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$download_url&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;无法获取下载链接&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">filename&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>basename &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$download_url&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 使用curl下载&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sleep &lt;span class="k">$((&lt;/span>RANDOM &lt;span class="o">%&lt;/span> &lt;span class="m">5&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="k">))&lt;/span> &lt;span class="c1"># 添加随机延时&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> curl -sLo &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$download_dir&lt;/span>&lt;span class="s2">/&lt;/span>&lt;span class="nv">$filename&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$download_url&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;已下载最新版文件 for &lt;/span>&lt;span class="nv">$repo_url&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="nv">$filename&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 下载完成后替换本文件版本号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sed -i &lt;span class="s2">&amp;#34;s,&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">repo_url&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="se">\/&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="se">\\&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">local_tag&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="se">\/&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="se">\\&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">,&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">repo_url&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="se">\/&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="se">\\&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">remote_tag&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="se">\/&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="se">\\&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">,&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$0&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;curl下载失败，转为wget下载&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 使用wget下载&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sleep &lt;span class="k">$((&lt;/span>RANDOM &lt;span class="o">%&lt;/span> &lt;span class="m">5&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="k">))&lt;/span> &lt;span class="c1"># 添加随机延时&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> wget -P &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$download_dir&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$download_url&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;已下载最新版文件 for &lt;/span>&lt;span class="nv">$repo_url&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="nv">$filename&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 下载完成后替换本文件版本号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sed -i &lt;span class="s2">&amp;#34;s,&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">repo_url&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="se">\/&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="se">\\&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">local_tag&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="se">\/&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="se">\\&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">,&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">repo_url&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="se">\/&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="se">\\&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">remote_tag&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="se">\/&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="se">\\&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">,&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$0&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;wget下载失败&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Windows注册表配置</title><link>https://97xiami.github.io/p/windows%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%85%8D%E7%BD%AE/</link><pubDate>Mon, 30 Dec 2024 13:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/windows%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%85%8D%E7%BD%AE/</guid><description>&lt;ul>
+&lt;li>&lt;a class="link" href="#%e9%9a%90%e8%97%8f%e8%b5%84%e6%ba%90%e7%ae%a1%e7%90%86%e5%99%a8%e7%9a%84%e4%b8%83%e4%b8%aa%e6%96%87%e4%bb%b6%e5%a4%b9" >隐藏资源管理器的七个文件夹&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e6%98%be%e7%a4%banetplwiz%e4%b8%ad%e7%9a%84%e8%87%aa%e5%8a%a8%e7%99%bb%e5%bd%95" >显示&lt;code>netplwiz&lt;/code>中的自动登录&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e8%87%aa%e5%b8%a6%e8%be%93%e5%85%a5%e6%b3%95%e5%a2%9e%e5%8a%a0%e5%b0%8f%e9%b9%a4%e5%8f%8c%e6%8b%bc" >自带输入法增加小鹤双拼&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#rdp-%e5%bc%80%e5%90%af-60-%e5%b8%a7" >RDP 开启 60 帧&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%88%a0%e9%99%a4-program-%e5%90%af%e5%8a%a8%e9%a1%b9" >删除 Program 启动项&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%88%a0%e9%99%a4%e9%93%be%e6%8e%a5%e4%b8%8d%e5%90%8c%e7%bd%91%e7%bb%9c%e6%97%b6%e6%8f%90%e7%a4%ba%e7%9a%84%e7%bd%91%e7%bb%9c-12345-%e7%ad%89%e7%ad%89" >删除链接不同网络时提示的网络 12345 等等&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%85%81%e8%ae%b8%e6%8c%82%e8%bd%bd-http-%e7%9a%84-webdav" >允许挂载 http 的 WebDAV&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="隐藏资源管理器的七个文件夹">隐藏资源管理器的七个文件夹
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-reg" data-lang="reg">&lt;span class="line">&lt;span class="cl">Windows Registry Editor Version 5.00
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{31C0DD25-9439-4F12-BF41-7FF4EDA38722}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{31C0DD25-9439-4F12-BF41-7FF4EDA38722}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;ThisPCPolicy&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Hide&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="显示netplwiz中的自动登录">显示&lt;code>netplwiz&lt;/code>中的自动登录
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-reg" data-lang="reg">&lt;span class="line">&lt;span class="cl">Windows Registry Editor Version 5.00
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;DevicePasswordLessBuildVersion&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">dword&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">00000000&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="自带输入法增加小鹤双拼">自带输入法增加小鹤双拼
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-reg" data-lang="reg">&lt;span class="line">&lt;span class="cl">Windows Registry Editor Version 5.00
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_CURRENT_USER&lt;/span>&lt;span class="k">\Software\Microsoft\InputMethod\Settings\CHS]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;UserDefinedDoublePinyinScheme0&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="rdp-开启-60-帧">RDP 开启 60 帧
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-reg" data-lang="reg">&lt;span class="line">&lt;span class="cl">Windows Registry Editor Version 5.00
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;DWMFRAMEINTERVAL&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">dword&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">0000000f&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="删除-program-启动项">删除 Program 启动项
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-reg" data-lang="reg">&lt;span class="line">&lt;span class="cl">Windows Registry Editor Version 5.00
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;TeamsMachineInstaller&amp;#34;&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">-&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="删除链接不同网络时提示的网络-12345-等等">删除链接不同网络时提示的网络 12345 等等
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-reg" data-lang="reg">&lt;span class="line">&lt;span class="cl">Windows Registry Editor Version 5.00
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="允许挂载-http-的-webdav">允许挂载 http 的 WebDAV
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-reg" data-lang="reg">&lt;span class="line">&lt;span class="cl">Windows Registry Editor Version 5.00
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[&lt;/span>&lt;span class="nb">HKEY_LOCAL_MACHINE&lt;/span>&lt;span class="k">\SYSTEM\CurrentControlSet\Services\WebClient\Parameters]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">&amp;#34;BasicAuthLevel&amp;#34;&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">dword&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">00000002&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>IOS 描述文件</title><link>https://97xiami.github.io/p/ios-%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6/</link><pubDate>Sun, 29 Dec 2024 17:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/ios-%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6/</guid><description>&lt;p>&lt;a class="link" href="ali-https.mobileconfig" >阿里 dns-https&lt;/a>&lt;/p></description></item><item><title>Linux常用命令</title><link>https://97xiami.github.io/p/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link><pubDate>Sun, 29 Dec 2024 17:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid><description>&lt;ul>
+&lt;li>&lt;a class="link" href="#awk" >awk&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#du" >du&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#grep" >grep&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#journalctl" >journalctl&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#sed" >sed&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#sort" >sort&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#ss" >ss&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#tar" >tar&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#vim" >vim&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="awk">awk
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 用`:`分割并打印`filename`第二列和行号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `$0`表示整行，`$1`表示第一列&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-F`指定分割符，默认空格&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `[,;]`指定分割符为`,`或`;`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awk -F &lt;span class="s1">&amp;#39;:&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;{print NR, $2}&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打印第二列为`100`的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 支持`&amp;gt;`,`&amp;gt;=`,`==`,`&amp;lt;=`,&amp;#39;&amp;lt;&amp;#39;,&amp;#39;!=&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awk &lt;span class="s1">&amp;#39;$2 == 100&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 正则表达式打印包含`text`行,`!~`不包含&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awk &lt;span class="s1">&amp;#39;$1 ~ /text/ {print $0}&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打印第一列等于 &amp;#34;text&amp;#34; 且第二列大于 20 的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `||`或者&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awk &lt;span class="s1">&amp;#39;$1 == &amp;#34;text&amp;#34; &amp;amp;&amp;amp; $2 &amp;gt; 100 {print $0}&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打印第一列不是`text`的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awk &lt;span class="s1">&amp;#39;!($1 == &amp;#34;apple&amp;#34;) {print $0}&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="du">du
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 只显示`test`文件夹大小，不会打印test的所有子文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">du -sh &lt;span class="nb">test&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-a`显示每个文件大小，`--max-depth=1`只显示一级目录&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="grep">grep
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-o`表示只显示匹配内容&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">grep -o
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="journalctl">journalctl
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 获取`sshd`两天内的日志&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">journalctl --since &lt;span class="s2">&amp;#34;2 day ago&amp;#34;&lt;/span> -u sshd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="sed">sed
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打印`filename`的第一行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -n &lt;span class="s2">&amp;#34;1p&amp;#34;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 删除`text.txt`中的空白行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i &lt;span class="s1">&amp;#39;/^$/d&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在第三行前插入`text`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i &lt;span class="s1">&amp;#39;3i\text&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在第三行后插入`text`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i &lt;span class="s1">&amp;#39;3a\text&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将第三行替换为`text`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i &lt;span class="s1">&amp;#39;3c\text&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="sort">sort
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 默认按字母顺序abcde排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-n`按数字12345排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-r`倒序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-f`忽略大小写&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-u`去除相同行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sort filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 合并`filename`中内容相同的行，输出为`filename`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sort -u filename -o filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `ip.txt`每行一个IP地址，下面的命令可以将IP地址按从小到大排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-t`指定分割符&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-k1`表示分割后第一列，`1n`表示从第一个列开始数字排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sort -u ip.txt -o ip.txt -t &lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span> -k1,1n -k2,2n -k3,3n -k4,4n
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="ss">ss
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看`22`端口状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ss -tulpn &lt;span class="p">|&lt;/span> grep &lt;span class="m">22&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `-t`表示tcp，`-u`表示udp，`-l`显示所有，`-p`显示进程和pid，`-n`直接显示ip和端口&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="tar">tar
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `gzip`用`-z`，`bzip2`用`-j`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 压缩`test`目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -cvf test.tar &lt;span class="nb">test&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 解压到`test`目录下&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -xvf test.tar -C &lt;span class="nb">test&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看`test.tar`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -tvf test.tar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将`filename`添加到`test.tar`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -rvf test.tar filename
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 删除`test.tar`中的`filename`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar --delete -f test.tar filename
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="vim">vim
+&lt;/h2>&lt;blockquote>
+&lt;p>在指定列插入文本，比如&lt;code>#&lt;/code>注释
+选定列位置后按&lt;code>Ctrl + v&lt;/code>，然后上下移动光标选定要插入的行
+按&lt;code>Shift + i&lt;/code>，然后输入要插入的文本之后按&lt;code>Esc&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将所有`0 123`替换为`4 5 6`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># `%`表示查找所有行，`g`表示替换所有匹配，`\s`表示匹配空格，替换几个空格就输入几个空格&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">:%s/0&lt;span class="se">\s&lt;/span>123&lt;span class="se">\s&lt;/span>/4 &lt;span class="m">5&lt;/span> 6/g
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 搜索后，`n`下一个，`N`上一个&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 文件路径不存在时创建文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">:!mkdir -p %:h
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>备份Docker镜像</title><link>https://97xiami.github.io/p/%E5%A4%87%E4%BB%BDdocker%E9%95%9C%E5%83%8F/</link><pubDate>Sat, 28 Dec 2024 18:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/%E5%A4%87%E4%BB%BDdocker%E9%95%9C%E5%83%8F/</guid><description>&lt;h2 id="备份本机所有docker镜像">备份本机所有Docker镜像
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAGES&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>docker images --format &lt;span class="s2">&amp;#34;{{.Repository}}:{{.Tag}}&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> IMAGE in &lt;span class="nv">$IMAGES&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IMAGE_NAME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$IMAGE&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/:/_/g&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/\//-/g&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker save -o &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">IMAGE_NAME&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">.tar&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$IMAGE&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="还原当前目录下所有docker镜像">还原当前目录下所有Docker镜像
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAGES&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>ls *.tar&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> IMAGE in &lt;span class="nv">$IMAGES&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker load -i &lt;span class="nv">$IMAGE&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Docker使用Nftables</title><link>https://97xiami.github.io/p/docker%E4%BD%BF%E7%94%A8nftables/</link><pubDate>Sat, 28 Dec 2024 17:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/docker%E4%BD%BF%E7%94%A8nftables/</guid><description>&lt;h2 id="配置etcdockerdaemonjson禁用iptables">配置&lt;code>/etc/docker/daemon.json&lt;/code>禁用iptables
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;iptables&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="自定义docker虚拟网卡">自定义docker虚拟网卡
+&lt;/h2>&lt;blockquote>
+&lt;p>自行修改为喜欢的ip段和网卡名称，
+&lt;code>mynet&lt;/code>是docker容器使用时用的名称，
+&lt;code>user0&lt;/code>是宿主机执行&lt;code>ip addr&lt;/code>显示的网卡名称，
+因为容器默认创建的网卡名都是&lt;code>br-xxxxxxxx&lt;/code>，所以要指定名称&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker network create mynet --driver bridge --subnet 172.10.0.0/16 --gateway 172.10.0.1 -o com.docker.network.bridge.name&lt;span class="o">=&lt;/span>user0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>docker-compose.yml配置&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">nginx&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mynet&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ipv4_address&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">172.10.0.2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mynet&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">external&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="nftables配置">nftables配置
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">#!/usr/bin/nft -f
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">flush ruleset
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 默认网卡docker0的IP段，一般情况不用修改
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">define docker0_ip = 172.17.0.0/16
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 自定义的网卡名称及IP段
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">define docker_if = &amp;#34;user0&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">define user0_ip = 172.10.0.0/16
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">table ip nat {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain PREROUTING {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type nat hook prerouting priority dstnat; policy accept;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 目标地址为本地地址，则转发到DOCKER链表
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> fib daddr type local jump DOCKER
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain OUTPUT {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type nat hook output priority dstnat; policy accept;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 目标地址为本地地址且不在127.0.0.0/8中，则转发到DOCKER链表
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip daddr != 127.0.0.0/8 fib daddr type local jump DOCKER
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain POSTROUTING {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type nat hook postrouting priority srcnat; policy accept;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 伪装地址使容器能够访问外部网络
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname != &amp;#34;docker0&amp;#34; ip saddr $docker0_ip masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname != $docker_if ip saddr $user0_ip masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 伪装容器内部通讯时的地址
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip saddr $docker0_ip ip daddr $docker0_ip masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip saddr $user0_ip ip daddr $user0_ip masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain DOCKER {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行docker网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname &amp;#34;docker0&amp;#34; return
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname $docker_if return
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 设置容器端口转发
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname != $docker_if tcp dport 80 dnat to 172.10.0.2:8080
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">table ip filter {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain INPUT {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type filter hook input priority filter; policy drop;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行lo网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname &amp;#34;lo&amp;#34; accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行默认docker0和自定义虚拟网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname &amp;#34;docker0&amp;#34; accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname $docker_if accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行已建立连接和已关联的连接
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ct state established, related accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行icmp请求，限速每秒100个包
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip protocol icmp icmp type { destination-unreachable, time-exceeded, parameter-problem } limit rate 100/second accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chain FORWARD {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> type filter hook forward priority filter; policy drop;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行docker网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname &amp;#34;docker0&amp;#34; ct state established,related accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname &amp;#34;docker0&amp;#34; iifname != &amp;#34;docker0&amp;#34; ip daddr $docker0_ip accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname &amp;#34;docker0&amp;#34; accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 放行自定义docker虚拟网卡
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname $docker_if ct state established,related accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname $docker_if iifname != $docker_if ip daddr $user0_ip accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iifname $docker_if accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>有需要可以将规则设置为更加详细的指定端口放行&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">chain POSTROUTING {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ip saddr 172.10.0.2 ip daddr 172.10.0.2 tcp dport 8080 masquerade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chain FORWARD {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> oifname $docker_if iifname != $docker_if ip daddr 172.10.0.2 tcp dport 8080 accept
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>systemd+ttyd</title><link>https://97xiami.github.io/p/systemd-ttyd/</link><pubDate>Sat, 28 Dec 2024 17:00:00 +0800</pubDate><guid>https://97xiami.github.io/p/systemd-ttyd/</guid><description>&lt;h2 id="自行安装-ttyd">自行安装 ttyd
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/tsl0922/ttyd" target="_blank" rel="noopener"
+>https://github.com/tsl0922/ttyd&lt;/a>&lt;/p>
+&lt;h2 id="添加-systemd-服务etcsystemdsystemttydservice">添加 systemd 服务&lt;code>/etc/systemd/system/ttyd.service&lt;/code>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-service" data-lang="service">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Unit]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Description&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">TTYD&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">After&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">syslog.target&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">After&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">network.target&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Service]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ExecStart&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">/usr/bin/ttyd -W -p 2222 -c admin:password bash&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">simple&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Restart&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">always&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">User&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">root&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Group&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">root&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Install]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">WantedBy&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">multi-user.target&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="执行命令">执行命令
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl daemon-reload
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> ttyd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl start ttyd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>vim配置</title><link>https://97xiami.github.io/p/vim%E9%85%8D%E7%BD%AE/</link><pubDate>Sun, 22 Dec 2024 15:57:00 +0800</pubDate><guid>https://97xiami.github.io/p/vim%E9%85%8D%E7%BD%AE/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;span class="lnt">66
+&lt;/span>&lt;span class="lnt">67
+&lt;/span>&lt;span class="lnt">68
+&lt;/span>&lt;span class="lnt">69
+&lt;/span>&lt;span class="lnt">70
+&lt;/span>&lt;span class="lnt">71
+&lt;/span>&lt;span class="lnt">72
+&lt;/span>&lt;span class="lnt">73
+&lt;/span>&lt;span class="lnt">74
+&lt;/span>&lt;span class="lnt">75
+&lt;/span>&lt;span class="lnt">76
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.vimrc" data-lang=".vimrc">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;语法检测&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">syntax&lt;/span> &lt;span class="nx">enable&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;历史容量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">history&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="m">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;检测文件类型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">filetype&lt;/span> &lt;span class="nx">on&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;不同文件类型不同缩进格式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">filetype&lt;/span> &lt;span class="nx">plugin&lt;/span> &lt;span class="nx">indent&lt;/span> &lt;span class="nx">on&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;自动载入&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">autoread&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;启动不显示援助&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">shortmess&lt;/span>&lt;span class="p">+=&lt;/span>&lt;span class="nx">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;取消备份&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">nobackup&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;关闭交换文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">noswapfile&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;突出显示当前列&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">cursorcolumn&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;突出显示当前行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">cursorline&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;启用鼠标&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">mouse&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="nx">a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;显示行列号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">ruler&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;显示正在输入的命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">showcmd&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;显示当前模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">showmode&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;光标距顶/底部行数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">scrolloff&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="m">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;显示行号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">number&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;自动换行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">wrap&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;符号换行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">linebreak&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;高亮搜索文本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">hlsearch&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;实时搜索&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">incsearch&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;忽略大小写&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">ignorecase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;一个大写&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">smartcase&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;智能缩进&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">smartindent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;自动缩进&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">autoindent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;tab宽度&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">tabstop&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;tab转为空格&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">expandtab&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;缩进宽度&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">shiftwidth&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;文件编码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">encoding&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="nx">utf&lt;/span>&lt;span class="m">-8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;启用256色&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">termguicolors&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;显示状态栏&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">laststatus&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;括号配对&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">showmatch&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;保留撤销历史&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">undofile&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;撤销历史文件位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">undodir&lt;/span>&lt;span class="p">=&lt;/span>/&lt;span class="nx">home&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;命令补全&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">wildmenu&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;显示所有命令，再次tab切换&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">wildmode&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="nx">longest&lt;/span>:&lt;span class="nx">full&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="nx">full&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;不兼容vi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">nocompatible&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;智能补全&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">completeopt&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="nx">longest&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="nx">menu&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#34;backspace键无法删除&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nx">backspace&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="nx">indent&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="nx">eol&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="nx">start&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>R86S安装Arch Linux</title><link>https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85arch-linux/</link><pubDate>Sun, 22 Dec 2024 14:57:00 +0800</pubDate><guid>https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85arch-linux/</guid><description>&lt;ul>
+&lt;li>&lt;a class="link" href="#%e7%a6%81%e7%94%a8-reflector" >禁用 reflector&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e9%85%8d%e7%bd%ae%e4%b8%ad%e7%a7%91%e5%a4%a7%e9%95%9c%e5%83%8f%e6%ba%90" >配置中科大镜像源&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%90%8c%e6%ad%a5%e6%97%b6%e9%97%b4" >同步时间&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e8%bd%ac%e6%8d%a2%e7%a3%81%e7%9b%98%e7%b1%bb%e5%9e%8b%e4%b8%ba-gpt" >转换磁盘类型为 GPT&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%88%86%e5%8c%ba" >分区&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e6%a0%bc%e5%bc%8f%e5%8c%96%e5%88%86%e5%8c%ba" >格式化分区&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e6%8c%82%e8%bd%bd%e5%88%86%e5%8c%ba" >挂载分区&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%ae%89%e8%a3%85%e5%9f%ba%e7%a1%80%e5%8c%85" >安装基础包&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e7%94%9f%e6%88%90-fstab-%e6%96%87%e4%bb%b6" >生成 fstab 文件&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#chroot-%e8%bf%9bmnt" >chroot 进/mnt&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e8%ae%be%e7%bd%ae%e6%97%b6%e5%8c%ba%e5%b9%b6%e5%86%99%e5%85%a5%e7%a1%ac%e4%bb%b6" >设置时区并写入硬件&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e8%ae%be%e7%bd%ae-local-%e6%9c%ac%e5%9c%b0%e5%8c%96" >设置 local 本地化&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e8%ae%be%e7%bd%ae%e4%b8%bb%e6%9c%ba%e5%90%8d%e5%92%8c-hosts" >设置主机名和 hosts&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e8%ae%be%e7%bd%ae-root-%e5%af%86%e7%a0%81" >设置 root 密码&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%ae%89%e8%a3%85-cpu-%e5%be%ae%e7%a0%81" >安装 CPU 微码&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%ae%89%e8%a3%85%e5%bc%95%e5%af%bc%e7%a8%8b%e5%ba%8f" >安装引导程序&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%ae%89%e8%a3%85%e5%ae%8c%e6%88%90%e9%87%8d%e5%90%af" >安装完成，重启&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e9%87%8d%e5%90%af%e5%90%8e%e5%90%af%e5%8a%a8-dhcpcd-%e8%81%94%e7%bd%91" >重启后启动 dhcpcd 联网&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e9%85%8d%e7%bd%ae-swapfile" >配置 swapfile&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%ae%89%e8%a3%85-intel-%e9%9b%86%e6%98%be%e9%a9%b1%e5%8a%a8" >安装 Intel 集显驱动&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%ae%89%e8%a3%85-smartmontools-%e6%9f%a5%e7%9c%8b%e7%a1%ac%e7%9b%98%e4%bf%a1%e6%81%af" >安装 smartmontools 查看硬盘信息&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="禁用-reflector">禁用 reflector
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl stop reflector
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="配置中科大镜像源">配置中科大镜像源
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;Server = https://mirrors.ustc.edu.cn/archlinux/&lt;/span>&lt;span class="nv">$repo&lt;/span>&lt;span class="s2">/os/&lt;/span>&lt;span class="nv">$arch&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &amp;gt; /etc/pacman.d/mirrorlist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="同步时间">同步时间
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">timedatectl set-ntp &lt;span class="nb">true&lt;/span> &lt;span class="c1"># 开启ntp时间同步&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-timezone PRC &lt;span class="c1"># 设置时区为中国&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl status &lt;span class="c1"># 查看时间&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="转换磁盘类型为-gpt">转换磁盘类型为 GPT
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">lsblk &lt;span class="c1"># 显示分区信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">parted /dev/nvme0n1 &lt;span class="c1"># 执行parted，进行分区操作&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>parted&lt;span class="o">)&lt;/span>mktable &lt;span class="c1"># 输入mktable&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>parted&lt;span class="o">)&lt;/span>New disk lebel type? &lt;span class="c1"># 输入gpt，如果有数据会有Warining，输入yes&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>parted&lt;span class="o">)&lt;/span>quit &lt;span class="c1"># 输入quit退出&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="分区">分区
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cfdisk /dev/nvme0n1 &lt;span class="c1"># 使用cfdisk图形化分区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># EFI分区的Size Type选择EFI System，大小1G就行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 其他分区用默认的Linux filesystem&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 分区完成后选择Write回车，输入yes写入分区信息；选择Quit退出&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="格式化分区">格式化分区
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkfs.vfat /dev/nvme0n1p1 &lt;span class="c1"># 格式化EFI分区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkfs.ext4 /dev/nvme0n1p2 &lt;span class="c1"># 格式化其他分区为EXT4格式&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="挂载分区">挂载分区
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mount /dev/nvme0n1p2 /mnt &lt;span class="c1"># 先挂载根分区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir /mnt/efi &lt;span class="c1"># 创建efi目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mount /dev/nvme0n1p1 /mnt/efi &lt;span class="c1"># 挂载efi分区&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装基础包">安装基础包
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacstrap /mnt base linux-lts linux-lts-headers linux-firmware-intel linux-firmware-whence dhcpcd vim bash-completion &lt;span class="c1"># 这里使用lts内核，有无线网卡加上iwd&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="生成-fstab-文件">生成 fstab 文件
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="chroot-进mnt">chroot 进/mnt
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">arch-chroot /mnt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="设置时区并写入硬件">设置时区并写入硬件
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &lt;span class="c1"># 创建Shanghai时区的软链接&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hwclock --systohc &lt;span class="c1"># 时间信息写入硬件&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="设置-local-本地化">设置 local 本地化
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;en_US.UTF-8 UTF-8&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/locale.gen
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;zh_CN.UTF-8 UTF-8&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/locale.gen
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">locale-gen
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;LANG=en_US.UTF-8&amp;#39;&lt;/span> &amp;gt; /etc/locale.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="设置主机名和-hosts">设置主机名和 hosts
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;arch&amp;#34;&lt;/span> &amp;gt; /etc/hostname
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;127.0.0.1 localhost&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/hosts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;::1 localhost&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/hosts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;127.0.1.1 arch&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/hosts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="设置-root-密码">设置 root 密码
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">passwd root
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装-cpu-微码">安装 CPU 微码
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -S intel-ucode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装引导程序">安装引导程序
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -S grub efibootmgr &lt;span class="c1"># grub是启动引导器，efibootmgr被 grub 脚本用来将启动项写入 NVRAM。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">grub-install --target&lt;span class="o">=&lt;/span>x86_64-efi --efi-directory&lt;span class="o">=&lt;/span>/efi --bootloader-id&lt;span class="o">=&lt;/span>GRUB &lt;span class="c1"># 配置grub信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i &lt;span class="s2">&amp;#34;s/loglevel=3 quiet/loglevel=5 nowatchdog quiet/g&amp;#34;&lt;/span> /etc/default/grub &lt;span class="c1"># loglevel改为5是为了更方便排错，nowatchdog可以加快开关机速度&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">grub-mkconfig -o /boot/grub/grub.cfg &lt;span class="c1"># 将grub配置写入&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装完成重启">安装完成，重启
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">exit&lt;/span> &lt;span class="c1"># 退回安装环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">umount -R /mnt &lt;span class="c1"># 卸载新分区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">reboot &lt;span class="c1"># 重启&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="重启后启动-dhcpcd-联网">重启后启动 dhcpcd 联网
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> dhcpcd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ststemctl start dhcpcd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="配置-swapfile">配置 swapfile
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>/dev/zero &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>/swapfile &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>1M &lt;span class="nv">count&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">2048&lt;/span> &lt;span class="nv">status&lt;/span>&lt;span class="o">=&lt;/span>progress &lt;span class="c1"># 创建2G的交换空间 大小根据需要自定&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> /swapfile &lt;span class="c1"># 设置正确的权限&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkswap /swapfile &lt;span class="c1"># 格式化swap文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">swapon /swapfile &lt;span class="c1"># 启用swap文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;/swapfile none swap defaults 0 0&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/fstab &lt;span class="c1"># 将swapfile写入fstab开机自动挂载&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装-intel-集显驱动">安装 Intel 集显驱动
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -S mesa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装-smartmontools-查看硬盘信息">安装 smartmontools 查看硬盘信息
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -S smartmontools
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>站内搜索</title><link>https://97xiami.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://97xiami.github.io/search/</guid><description/></item></channel></rss>
