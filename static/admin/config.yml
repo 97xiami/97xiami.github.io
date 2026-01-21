@@ -9,6 +9,10 @@ backend:
 media_folder: /static/media
 public_folder: /media
 
+i18n:
+  structure: multiple_folders
+  locales: zh
+  
 collections:
   - name: posts
     label: Posts
