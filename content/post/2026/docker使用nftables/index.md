@@ -17,19 +17,14 @@ weight: 1
 
 ## 自定义docker虚拟网卡
 
->
 
-> 自行修改为喜欢的ip段和网卡名称，
 
-> \`mynet\`是docker容器使用时用的名称，
-
-> \`user0\`是宿主机执行\`ip addr\`显示的网卡名称，
-
-> 因为容器默认创建的网卡名都是\`br-xxxxxxxx\`，所以要指定名称
+> 自行修改为喜欢的ip段和网卡名称， \`mynet\`是docker容器使用时用的名称， \`user0\`是宿主机执行\`ip addr\`显示的网卡名称，因为容器默认创建的网卡随机名都是\`br-xxxxxxxx\`，所以要指定名称
 
 ```bash
 docker network create mynet --driver bridge --subnet 172.10.0.0/16 --gateway 172.10.0.1 -o com.docker.network.bridge.name=user0
 ```
+
 > docker-compose.yml配置
 
 ```yml
