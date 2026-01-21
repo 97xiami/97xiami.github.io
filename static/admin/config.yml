@@ -6,6 +6,9 @@ backend:
   branch: master
   base_url: https://sveltia-cms-auth.xiami110.workers.dev
 
+media_folder: /static/media
+public_folder: /media
+
 site_url: https://97xiami.github.io
 logout_redirect_url: https://97xiami.github.io
 collections:
