@@ -1,0 +1,178 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content=" awk du grep journalctl sed sort ss tar vim awk 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 # 用`:`分割并打印`filename`第二列和行号 # `$0`表示整行，`$1`表示第一列 # `-F`指定分割符，默认空格 # `[,;]`指定分割符为`,`或`;` awk -F ':' '{print NR, $2}' filename # 打印第二列为`100`的行 # 支持`>`,`>=`,`==`,`<=`,'<','!=' awk '$2 == 100' filename # 正则表达式打印包含`text`行,`!~`不包含 awk '$1 ~ /text/ {print $0}' filename # 打印第一列等于 &#34;text&#34; 且第二列大于 20 的行 # `||`或者 awk '$1 == &#34;text&#34; && $2 > 100 {print $0}' filename # 打印第一列不是`text`的行 awk '!($1 == &#34;apple&#34;) {print $0}' filename du 1 2 3 # 只显示`test`文件夹大小，不会打印test的所有子文件 du -sh test # `-a`显示每个文件大小，`--max-depth=1`只显示一级目录 grep 1 2 # `-o`表示只显示匹配内容 grep -o journalctl 1 2 # 获取`sshd`两天内的日志 journalctl --since &#34;2 day ago&#34; -u sshd sed 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 打印`filename`的第一行 sed -n &#34;1p&#34; filename # 删除`text.txt`中的空白行 sed -i '/^$/d' filename # 在第三行前插入`text` sed -i '3i\\text' filename # 在第三行后插入`text` sed -i '3a\\text' filename # 将第三行替换为`text` sed -i '3c\\text' filename sort 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 默认按字母顺序abcde排序 # `-n`按数字12345排序 # `-r`倒序 # `-f`忽略大小写 # `-u`去除相同行 sort filename # 合并`filename`中内容相同的行，输出为`filename` sort -u filename -o filename # `ip.txt`每行一个IP地址，下面的命令可以将IP地址按从小到大排序 # `-t`指定分割符 # `-k1`表示分割后第一列，`1n`表示从第一个列开始数字排序 sort -u ip.txt -o ip.txt -t '.' -k1,1n -k2,2n -k3,3n -k4,4n ss 1 2 3 # 查看`22`端口状态 ss -tulpn | grep 22 # `-t`表示tcp，`-u`表示udp，`-l`显示所有，`-p`显示进程和pid，`-n`直接显示ip和端口 tar 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 # `gzip`用`-z`，`bzip2`用`-j` # 压缩`test`目录 tar -cvf test.tar test # 解压到`test`目录下 tar -xvf test.tar -C test # 查看`test.tar` tar -tvf test.tar # 将`filename`添加到`test.tar` tar -rvf test.tar filename # 删除`test.tar`中的`filename` tar --delete -f test.tar filename vim 在指定列插入文本，比如#注释 选定列位置后按Ctrl + v，然后上下移动光标选定要插入的行 按Shift + i，然后输入要插入的文本之后按Esc\n"><title>Linux常用命令</title><link rel=canonical href=https://97xiami.github.io/p/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/><link rel=stylesheet href=/scss/style.min.833d6eed45de56f48306bf57268d5b8cdfc8a60e8e7bdc99810464fcd033f7c6.css><meta property='og:title' content="Linux常用命令"><meta property='og:description' content=" awk du grep journalctl sed sort ss tar vim awk 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 # 用`:`分割并打印`filename`第二列和行号 # `$0`表示整行，`$1`表示第一列 # `-F`指定分割符，默认空格 # `[,;]`指定分割符为`,`或`;` awk -F ':' '{print NR, $2}' filename # 打印第二列为`100`的行 # 支持`>`,`>=`,`==`,`<=`,'<','!=' awk '$2 == 100' filename # 正则表达式打印包含`text`行,`!~`不包含 awk '$1 ~ /text/ {print $0}' filename # 打印第一列等于 &#34;text&#34; 且第二列大于 20 的行 # `||`或者 awk '$1 == &#34;text&#34; && $2 > 100 {print $0}' filename # 打印第一列不是`text`的行 awk '!($1 == &#34;apple&#34;) {print $0}' filename du 1 2 3 # 只显示`test`文件夹大小，不会打印test的所有子文件 du -sh test # `-a`显示每个文件大小，`--max-depth=1`只显示一级目录 grep 1 2 # `-o`表示只显示匹配内容 grep -o journalctl 1 2 # 获取`sshd`两天内的日志 journalctl --since &#34;2 day ago&#34; -u sshd sed 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 打印`filename`的第一行 sed -n &#34;1p&#34; filename # 删除`text.txt`中的空白行 sed -i '/^$/d' filename # 在第三行前插入`text` sed -i '3i\\text' filename # 在第三行后插入`text` sed -i '3a\\text' filename # 将第三行替换为`text` sed -i '3c\\text' filename sort 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 默认按字母顺序abcde排序 # `-n`按数字12345排序 # `-r`倒序 # `-f`忽略大小写 # `-u`去除相同行 sort filename # 合并`filename`中内容相同的行，输出为`filename` sort -u filename -o filename # `ip.txt`每行一个IP地址，下面的命令可以将IP地址按从小到大排序 # `-t`指定分割符 # `-k1`表示分割后第一列，`1n`表示从第一个列开始数字排序 sort -u ip.txt -o ip.txt -t '.' -k1,1n -k2,2n -k3,3n -k4,4n ss 1 2 3 # 查看`22`端口状态 ss -tulpn | grep 22 # `-t`表示tcp，`-u`表示udp，`-l`显示所有，`-p`显示进程和pid，`-n`直接显示ip和端口 tar 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 # `gzip`用`-z`，`bzip2`用`-j` # 压缩`test`目录 tar -cvf test.tar test # 解压到`test`目录下 tar -xvf test.tar -C test # 查看`test.tar` tar -tvf test.tar # 将`filename`添加到`test.tar` tar -rvf test.tar filename # 删除`test.tar`中的`filename` tar --delete -f test.tar filename vim 在指定列插入文本，比如#注释 选定列位置后按Ctrl + v，然后上下移动光标选定要插入的行 按Shift + i，然后输入要插入的文本之后按Esc\n"><meta property='og:url' content='https://97xiami.github.io/p/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/'><meta property='og:site_name' content='瞎写'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='linux'><meta property='article:published_time' content='2026-01-21T18:33:00+08:00'><meta property='article:modified_time' content='2026-01-21T18:33:00+08:00'><meta name=twitter:title content="Linux常用命令"><meta name=twitter:description content=" awk du grep journalctl sed sort ss tar vim awk 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 # 用`:`分割并打印`filename`第二列和行号 # `$0`表示整行，`$1`表示第一列 # `-F`指定分割符，默认空格 # `[,;]`指定分割符为`,`或`;` awk -F ':' '{print NR, $2}' filename # 打印第二列为`100`的行 # 支持`>`,`>=`,`==`,`<=`,'<','!=' awk '$2 == 100' filename # 正则表达式打印包含`text`行,`!~`不包含 awk '$1 ~ /text/ {print $0}' filename # 打印第一列等于 &#34;text&#34; 且第二列大于 20 的行 # `||`或者 awk '$1 == &#34;text&#34; && $2 > 100 {print $0}' filename # 打印第一列不是`text`的行 awk '!($1 == &#34;apple&#34;) {print $0}' filename du 1 2 3 # 只显示`test`文件夹大小，不会打印test的所有子文件 du -sh test # `-a`显示每个文件大小，`--max-depth=1`只显示一级目录 grep 1 2 # `-o`表示只显示匹配内容 grep -o journalctl 1 2 # 获取`sshd`两天内的日志 journalctl --since &#34;2 day ago&#34; -u sshd sed 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 打印`filename`的第一行 sed -n &#34;1p&#34; filename # 删除`text.txt`中的空白行 sed -i '/^$/d' filename # 在第三行前插入`text` sed -i '3i\\text' filename # 在第三行后插入`text` sed -i '3a\\text' filename # 将第三行替换为`text` sed -i '3c\\text' filename sort 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 默认按字母顺序abcde排序 # `-n`按数字12345排序 # `-r`倒序 # `-f`忽略大小写 # `-u`去除相同行 sort filename # 合并`filename`中内容相同的行，输出为`filename` sort -u filename -o filename # `ip.txt`每行一个IP地址，下面的命令可以将IP地址按从小到大排序 # `-t`指定分割符 # `-k1`表示分割后第一列，`1n`表示从第一个列开始数字排序 sort -u ip.txt -o ip.txt -t '.' -k1,1n -k2,2n -k3,3n -k4,4n ss 1 2 3 # 查看`22`端口状态 ss -tulpn | grep 22 # `-t`表示tcp，`-u`表示udp，`-l`显示所有，`-p`显示进程和pid，`-n`直接显示ip和端口 tar 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 # `gzip`用`-z`，`bzip2`用`-j` # 压缩`test`目录 tar -cvf test.tar test # 解压到`test`目录下 tar -xvf test.tar -C test # 查看`test.tar` tar -tvf test.tar # 将`filename`添加到`test.tar` tar -rvf test.tar filename # 删除`test.tar`中的`filename` tar --delete -f test.tar filename vim 在指定列插入文本，比如#注释 选定列位置后按Ctrl + v，然后上下移动光标选定要插入的行 按Shift + i，然后输入要插入的文本之后按Esc\n"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_12316f02ad07fe88.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>瞎写</a></h1><h2 class=site-description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2></div></header><ol class=menu-social><li><a href=https://github.com/97xiami target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>站内搜索</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#awk>awk</a></li><li><a href=#du>du</a></li><li><a href=#grep>grep</a></li><li><a href=#journalctl>journalctl</a></li><li><a href=#sed>sed</a></li><li><a href=#sort>sort</a></li><li><a href=#ss>ss</a></li><li><a href=#tar>tar</a></li><li><a href=#vim>vim</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/p/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/>Linux常用命令</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published datetime=2026-01-21T18:33:00+08:00>Jan 21, 2026</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 3 分钟</time></div></footer></div></header><section class=article-content><ul><li><a class=link href=#awk>awk</a></li><li><a class=link href=#du>du</a></li><li><a class=link href=#grep>grep</a></li><li><a class=link href=#journalctl>journalctl</a></li><li><a class=link href=#sed>sed</a></li><li><a class=link href=#sort>sort</a></li><li><a class=link href=#ss>ss</a></li><li><a class=link href=#tar>tar</a></li><li><a class=link href=#vim>vim</a></li></ul><h2 id=awk>awk</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 用`:`分割并打印`filename`第二列和行号</span>
+</span></span><span class=line><span class=cl><span class=c1># `$0`表示整行，`$1`表示第一列</span>
+</span></span><span class=line><span class=cl><span class=c1># `-F`指定分割符，默认空格</span>
+</span></span><span class=line><span class=cl><span class=c1># `[,;]`指定分割符为`,`或`;`</span>
+</span></span><span class=line><span class=cl>awk -F <span class=s1>&#39;:&#39;</span> <span class=s1>&#39;{print NR, $2}&#39;</span> filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 打印第二列为`100`的行</span>
+</span></span><span class=line><span class=cl><span class=c1># 支持`&gt;`,`&gt;=`,`==`,`&lt;=`,&#39;&lt;&#39;,&#39;!=&#39;</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;$2 == 100&#39;</span> filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 正则表达式打印包含`text`行,`!~`不包含</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;$1 ~ /text/ {print $0}&#39;</span> filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 打印第一列等于 &#34;text&#34; 且第二列大于 20 的行</span>
+</span></span><span class=line><span class=cl><span class=c1># `||`或者</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;$1 == &#34;text&#34; &amp;&amp; $2 &gt; 100 {print $0}&#39;</span> filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 打印第一列不是`text`的行</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;!($1 == &#34;apple&#34;) {print $0}&#39;</span> filename
+</span></span></code></pre></td></tr></table></div></div><h2 id=du>du</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 只显示`test`文件夹大小，不会打印test的所有子文件</span>
+</span></span><span class=line><span class=cl>du -sh <span class=nb>test</span>
+</span></span><span class=line><span class=cl><span class=c1># `-a`显示每个文件大小，`--max-depth=1`只显示一级目录</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=grep>grep</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># `-o`表示只显示匹配内容</span>
+</span></span><span class=line><span class=cl>grep -o
+</span></span></code></pre></td></tr></table></div></div><h2 id=journalctl>journalctl</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 获取`sshd`两天内的日志</span>
+</span></span><span class=line><span class=cl>journalctl --since <span class=s2>&#34;2 day ago&#34;</span> -u sshd
+</span></span></code></pre></td></tr></table></div></div><h2 id=sed>sed</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 打印`filename`的第一行</span>
+</span></span><span class=line><span class=cl>sed -n <span class=s2>&#34;1p&#34;</span> filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除`text.txt`中的空白行</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;/^$/d&#39;</span> filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 在第三行前插入`text`</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;3i\text&#39;</span> filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 在第三行后插入`text`</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;3a\text&#39;</span> filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 将第三行替换为`text`</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;3c\text&#39;</span> filename
+</span></span></code></pre></td></tr></table></div></div><h2 id=sort>sort</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 默认按字母顺序abcde排序</span>
+</span></span><span class=line><span class=cl><span class=c1># `-n`按数字12345排序</span>
+</span></span><span class=line><span class=cl><span class=c1># `-r`倒序</span>
+</span></span><span class=line><span class=cl><span class=c1># `-f`忽略大小写</span>
+</span></span><span class=line><span class=cl><span class=c1># `-u`去除相同行</span>
+</span></span><span class=line><span class=cl>sort filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 合并`filename`中内容相同的行，输出为`filename`</span>
+</span></span><span class=line><span class=cl>sort -u filename -o filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># `ip.txt`每行一个IP地址，下面的命令可以将IP地址按从小到大排序</span>
+</span></span><span class=line><span class=cl><span class=c1># `-t`指定分割符</span>
+</span></span><span class=line><span class=cl><span class=c1># `-k1`表示分割后第一列，`1n`表示从第一个列开始数字排序</span>
+</span></span><span class=line><span class=cl>sort -u ip.txt -o ip.txt -t <span class=s1>&#39;.&#39;</span> -k1,1n -k2,2n -k3,3n -k4,4n
+</span></span></code></pre></td></tr></table></div></div><h2 id=ss>ss</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查看`22`端口状态</span>
+</span></span><span class=line><span class=cl>ss -tulpn <span class=p>|</span> grep <span class=m>22</span>
+</span></span><span class=line><span class=cl><span class=c1># `-t`表示tcp，`-u`表示udp，`-l`显示所有，`-p`显示进程和pid，`-n`直接显示ip和端口</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=tar>tar</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># `gzip`用`-z`，`bzip2`用`-j`</span>
+</span></span><span class=line><span class=cl><span class=c1># 压缩`test`目录</span>
+</span></span><span class=line><span class=cl>tar -cvf test.tar <span class=nb>test</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 解压到`test`目录下</span>
+</span></span><span class=line><span class=cl>tar -xvf test.tar -C <span class=nb>test</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看`test.tar`</span>
+</span></span><span class=line><span class=cl>tar -tvf test.tar
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 将`filename`添加到`test.tar`</span>
+</span></span><span class=line><span class=cl>tar -rvf test.tar filename
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除`test.tar`中的`filename`</span>
+</span></span><span class=line><span class=cl>tar --delete -f test.tar filename
+</span></span></code></pre></td></tr></table></div></div><h2 id=vim>vim</h2><blockquote><p>在指定列插入文本，比如<code>#</code>注释
+选定列位置后按<code>Ctrl + v</code>，然后上下移动光标选定要插入的行
+按<code>Shift + i</code>，然后输入要插入的文本之后按<code>Esc</code></p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 将所有`0 123`替换为`4 5 6`</span>
+</span></span><span class=line><span class=cl><span class=c1># `%`表示查找所有行，`g`表示替换所有匹配，`\s`表示匹配空格，替换几个空格就输入几个空格</span>
+</span></span><span class=line><span class=cl>:%s/0<span class=se>\s</span>123<span class=se>\s</span>/4 <span class=m>5</span> 6/g
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 搜索后，`n`下一个，`N`上一个</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 文件路径不存在时创建文件夹</span>
+</span></span><span class=line><span class=cl>:!mkdir -p %:h
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/linux/>Linux</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/%E5%A4%87%E4%BB%BDdocker%E9%95%9C%E5%83%8F/><div class=article-details><h2 class=article-title>备份Docker镜像</h2></div></a></article><article><a href=/p/shell%E4%B8%8B%E8%BD%BDgithub%E7%9A%84release/><div class=article-details><h2 class=article-title>Shell下载GitHub的Release</h2></div></a></article><article><a href=/p/ttyd%E7%BD%91%E9%A1%B5shell/><div class=article-details><h2 class=article-title>ttyd网页shell</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2024 -
+2026 瞎写</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.33.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

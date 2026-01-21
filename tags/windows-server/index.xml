@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows Server on 瞎写</title><link>https://97xiami.github.io/tags/windows-server/</link><description>Recent content in Windows Server on 瞎写</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 21 Jan 2026 18:42:00 +0800</lastBuildDate><atom:link href="https://97xiami.github.io/tags/windows-server/index.xml" rel="self" type="application/rss+xml"/><item><title>R86S安装Windows Server 2022的驱动</title><link>https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/</link><pubDate>Wed, 21 Jan 2026 18:42:00 +0800</pubDate><guid>https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/</guid><description>&lt;h2 id="从-intel-官网下载驱动除网卡驱动外直接解压安装"&gt;从 intel 官网下载驱动，除网卡驱动外直接解压安装
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://www.intel.cn/content/www/cn/zh/download/838943" target="_blank" rel="noopener"
+&gt;网卡驱动&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.intel.cn/content/www/cn/zh/download/776137" target="_blank" rel="noopener"
+&gt;显卡驱动&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.intel.cn/content/www/cn/zh/download/682431" target="_blank" rel="noopener"
+&gt;英特尔 ® 管理引擎 驱动&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://www.intel.cn/content/www/cn/zh/download/19347" target="_blank" rel="noopener"
+&gt;芯片组 INF 实用程序&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;还剩一个未知设备，硬件 ID：&lt;code&gt;ACPI\VEN_INT&amp;amp;DEV_34C8&lt;/code&gt;，不安装无影响，需要安装自行搜索&lt;code&gt;INT34C8&lt;/code&gt;,或者直接用这个&lt;a class="link" href="https://97xiami.github.io/media/Intel-FORCED-SerialIO-10x64-30.100.2133.4_JSL-drp.zip" target="_blank" rel="noopener"
+&gt;驱动&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="网卡驱动安装方法"&gt;网卡驱动安装方法
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;解压驱动，内容如下图&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="image-1.png" &gt;&lt;img src="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-1.png"
+width="617"
+height="335"
+srcset="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-1_hu_e6ab8fd525f2635d.png 480w, https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-1_hu_2018a6f13148be0a.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="184"
+data-flex-basis="442px"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CMD 运行&lt;code&gt;compmgmt.msc&lt;/code&gt;打开计算机管理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;找到&lt;code&gt;设备管理器&lt;/code&gt;-&lt;code&gt;其他设备&lt;/code&gt;，会显示三个带感叹号的&lt;code&gt;以太网控制器&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="image-2.png" &gt;&lt;img src="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-2.png"
+width="381"
+height="487"
+srcset="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-2_hu_4de5a05798ba5f9a.png 480w, https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-2_hu_500f51a16979ea49.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="78"
+data-flex-basis="187px"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我这里已经安装了一个,所以只显示两个&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;双击其中一个打开&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="image-3.png" &gt;&lt;img src="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-3.png"
+width="461"
+height="579"
+srcset="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-3_hu_4a46ea52b7f7a4d2.png 480w, https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-3_hu_2ee2ac4bfdcce23.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="79"
+data-flex-basis="191px"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;中间位置会显示&lt;code&gt;PCI插槽4&lt;/code&gt;,&lt;code&gt;PCI插槽5&lt;/code&gt;和&lt;code&gt;PCI插槽6&lt;/code&gt;,分别对应物理接口的&lt;code&gt;ETH0&lt;/code&gt;,&lt;code&gt;ETH1&lt;/code&gt;和&lt;code&gt;ETH2&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;PCI插槽4&lt;/code&gt;选择&lt;code&gt;更新驱动程序&lt;/code&gt;，选择&lt;code&gt;浏览我的电脑以查找驱动程序&lt;/code&gt;，选择&lt;code&gt;让我从计算机的可用驱动列表中选取&lt;/code&gt;，选择&lt;code&gt;显示所有设备&lt;/code&gt;，选择&lt;code&gt;下一步&lt;/code&gt;，选择&lt;code&gt;从磁盘安装&lt;/code&gt;，选择&lt;code&gt;浏览&lt;/code&gt;，从解压路径找到&lt;code&gt;PRO1000/Winx64/WS2022/e1r.inf&lt;/code&gt;打开,然后找到&lt;code&gt;Intel(R) I210 Gigabit Network Connection&lt;/code&gt;，选择&lt;code&gt;下一步&lt;/code&gt;，会弹出&lt;code&gt;不推荐安装警告&lt;/code&gt;，选择&lt;code&gt;是&lt;/code&gt;安装&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="image-4.png" &gt;&lt;img src="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-4.png"
+width="455"
+height="213"
+srcset="https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-4_hu_164bd04cc7313e0f.png 480w, https://97xiami.github.io/p/r86s%E5%AE%89%E8%A3%85windows-server-2022%E7%9A%84%E9%A9%B1%E5%8A%A8/image-4_hu_e721b3e169f2b94f.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="213"
+data-flex-basis="512px"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;PCI插槽5和PCI插槽6&lt;/code&gt;选择&lt;code&gt;PRO2500/Winx64/WS2022/e2f.inf&lt;/code&gt;，然后找到&lt;code&gt;Intel(R) Ethernet Controller (3) I225-LM&lt;/code&gt;,选择&lt;code&gt;下一步&lt;/code&gt;，会弹出&lt;code&gt;不推荐安装警告&lt;/code&gt;，选择&lt;code&gt;是&lt;/code&gt;安装&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>Windows Server 2022配置</title><link>https://97xiami.github.io/p/windows-server-2022%E9%85%8D%E7%BD%AE/</link><pubDate>Wed, 21 Jan 2026 18:39:00 +0800</pubDate><guid>https://97xiami.github.io/p/windows-server-2022%E9%85%8D%E7%BD%AE/</guid><description>&lt;h2 id="组策略配置"&gt;组策略配置
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;配置项&lt;/th&gt;
+&lt;th&gt;路径&lt;/th&gt;
+&lt;th&gt;设置值&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;密码永不过期&lt;/td&gt;
+&lt;td&gt;计算机配置\Windows 设置\安全设置\账户策略\密码策略\密码最长使用期限&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;允许未登录直接关机&lt;/td&gt;
+&lt;td&gt;计算机配置\Windows 设置\安全设置\本地策略\安全选项\关机: 允许系统在未登录的情况下关闭&lt;/td&gt;
+&lt;td&gt;已启用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;无须按 Ctrl+Alt+Del&lt;/td&gt;
+&lt;td&gt;计算机配置\Windows 设置\安全设置\本地策略\安全选项\交互式登录：无须按 Ctrl+Alt+Del&lt;/td&gt;
+&lt;td&gt;已启用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;关机不用选择原因&lt;/td&gt;
+&lt;td&gt;计算机配置\管理模板\系统\显示“关闭事件跟踪程序”&lt;/td&gt;
+&lt;td&gt;已禁用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;开机不显示服务管理器&lt;/td&gt;
+&lt;td&gt;计算机配置\管理模板\系统\在登录时不显示“管理你的服务器”页&lt;/td&gt;
+&lt;td&gt;已禁用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description></item></channel></rss>

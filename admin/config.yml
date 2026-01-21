@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: 97xiami/97xiami.github.io
+  branch: master
+  base_url: https://sveltia-cms-auth.xiami110.workers.dev
+
+media_folder: /static/media
+public_folder: /media
+
+site_url: https://97xiami.github.io
+logout_redirect_url: https://97xiami.github.io
+collections:
+  - name: posts
+    label: Posts
+    folder: /content/post
+    path: '{{year}}/{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 发布日期, name: date, widget: datetime, default: {{now}}, format: YYYY-MM-DD HH:mm:ssZZ }
+      - { label: 标签, name: tags, widget: list, summary: {{fields.tag}}, field: { label: 标签项, name: tag, widget: string } }
+      - { label: 权重, name: weight, widget: hidden, default: 1 }
+      - { label: 正文, name: body, widget: markdown }
