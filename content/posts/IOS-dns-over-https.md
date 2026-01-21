@@ -7,4 +7,4 @@ tags:
 weight: 1
 ---
 
-[阿里 dns-https](ali-https.mobileconfig)
+[阿里 dns-https](static/media/file/ali-https.mobileconfig)
