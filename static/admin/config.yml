@@ -8,11 +8,16 @@ backend:
 
 media_folder: /static/media
 public_folder: /media
-  
+
+site_url: https://97xiami.github.io
+logout_redirect_url: https://97xiami.github.io
 collections:
   - name: posts
     label: Posts
     folder: /content/posts
     fields:
       - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Date, name: date, widget: DateTime }
+      - { label: Tags, name: tags, widget: string }
       - { label: Body, name: body, widget: markdown }
