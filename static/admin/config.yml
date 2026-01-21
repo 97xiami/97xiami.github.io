@@ -16,8 +16,8 @@ collections:
     label: Posts
     folder: /content/posts
     fields:
-      - { label: Title, name: title, widget: string }
+      - { label: 标题, name: title, widget: string }
       - { label: Slug, name: slug, widget: string }
-      - { label: Date, name: date, widget: DateTime }
-      - { label: Tags, name: tags, widget: string }
-      - { label: Body, name: body, widget: markdown }
+      - { label: 发布日期, name: date, widget: datetime, default: {{now}} }
+      - { label: 标签, name: tags, widget: string }
+      - { label: 正文, name: body, widget: markdown }
