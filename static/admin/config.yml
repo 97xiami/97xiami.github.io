@@ -16,6 +16,7 @@ collections:
     label: Posts
     folder: /content/posts
     fields:
+      - { label: weight, name: weight, widget: hidden, default: 1 }
       - { label: 标题, name: title, widget: string }
       - { label: 发布日期, name: date, widget: datetime, default: {{now}} }
       - { label: 标签, name: tags, widget: list, summary: {{fields.tag}}, field: { label: 标签项, name: tag, widget: string}}
