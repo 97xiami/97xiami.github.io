@@ -3,7 +3,7 @@
 backend:
   name: github
   repo: 97xiami/97xiami.github.io
-  branch: main
+  branch: master
   base_url: https://sveltia-cms-auth.xiami110.workers.dev
 
 media_folder: /static/media
