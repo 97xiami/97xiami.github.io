@@ -10,7 +10,7 @@ public_folder: /media
 
 i18n:
   structure: multiple_folders
-  locales: [ch]
+  locales: [ch, en]
 
 collections:
   - name: posts
