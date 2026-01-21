@@ -14,7 +14,7 @@ logout_redirect_url: https://97xiami.github.io
 collections:
   - name: posts
     label: Posts
-    folder: /content/posts
+    folder: /content/post
     path: '{{year}}/{{slug}}/index'
     media_folder: ''
     public_folder: ''
