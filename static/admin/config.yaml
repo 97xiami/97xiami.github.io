@@ -2,15 +2,21 @@
 
 backend:
   name: github
-  repo: user/repo
+  repo: 97xiami/97xiami.github.io
+  branch: main
 
 media_folder: /static/media
 public_folder: /media
+
+i18n:
+  structure: multiple_folders
+  locales: [ch]
 
 collections:
   - name: posts
     label: Posts
     folder: /content/posts
+    i18n: true
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Body, name: body, widget: markdown }
