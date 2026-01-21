@@ -7,4 +7,4 @@ tags:
 weight: 1
 ---
 
-[ali-https.mobileconfig](/static/media/file/ali-https.mobileconfig)
+[ali-https.mobileconfig](https://97xiami.github.io/media/file/ali-https.mobileconfig)
