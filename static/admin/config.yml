@@ -18,5 +18,5 @@ collections:
     fields:
       - { label: 标题, name: title, widget: string }
       - { label: 发布日期, name: date, widget: datetime, default: {{now}} }
-      - { label: 标签, name: tags, widget: list, summary: {{fields.tags}}, field: { label: 标签项, name: tag, widget: string}}
+      - { label: 标签, name: tags, widget: list, summary: {{fields.tag}}, field: { label: 标签项, name: tag, widget: string}}
       - { label: 正文, name: body, widget: markdown }
