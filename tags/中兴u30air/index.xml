@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>中兴U30air on 瞎写</title><link>https://97xiami.github.io/tags/%E4%B8%AD%E5%85%B4u30air/</link><description>Recent content in 中兴U30air on 瞎写</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 29 Apr 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://97xiami.github.io/tags/%E4%B8%AD%E5%85%B4u30air/index.xml" rel="self" type="application/rss+xml"/><item><title>中兴U30air/F50教程</title><link>https://97xiami.github.io/posts/%E4%B8%AD%E5%85%B4u30air/f50%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 29 Apr 2025 10:00:00 +0800</pubDate><guid>https://97xiami.github.io/posts/%E4%B8%AD%E5%85%B4u30air/f50%E6%95%99%E7%A8%8B/</guid><description>&lt;h2 id="性能模式"&gt;性能模式
+&lt;/h2&gt;&lt;p&gt;访问&lt;a class="link" href="https://192.168.0.1" target="_blank" rel="noopener"
+&gt;http://192.168.0.1&lt;/a&gt;，登录后访问&lt;a class="link" href="http://192.168.0.1/index.html#performance_mode" target="_blank" rel="noopener"
+&gt;http://192.168.0.1/index.html#performance_mode&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="adb-调试"&gt;adb 调试
+&lt;/h2&gt;&lt;p&gt;访问&lt;a class="link" href="https://192.168.0.1" target="_blank" rel="noopener"
+&gt;http://192.168.0.1&lt;/a&gt;，登录后访问&lt;a class="link" href="http://192.168.0.1/index.html#usb_port" target="_blank" rel="noopener"
+&gt;http://192.168.0.1/index.html#usb_port&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="下载escrcpy"&gt;下载&lt;a class="link" href="https://github.com/viarotel-org/escrcpy" target="_blank" rel="noopener"
+&gt;Escrcpy&lt;/a&gt;
+&lt;/h2&gt;&lt;h2 id="拨号输入83781进入工程模式切换到debuglog点击send-at-command在at-command输入框中输入命令后点击send"&gt;拨号输入&lt;code&gt;*#*#83781#*#*&lt;/code&gt;，进入工程模式，切换到&lt;code&gt;DEBUG&amp;amp;LOG&lt;/code&gt;，点击&lt;code&gt;Send AT Command&lt;/code&gt;，在&lt;code&gt;AT Command&lt;/code&gt;输入框中输入命令后点击&lt;code&gt;SEND&lt;/code&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Channel 的 0 是卡一，1 是卡二
+AT+SPIMEI=0 的 0 是卡一，1 是卡二&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;查询sim卡签约速率：AT+CGEQOSRDP=1
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;修改串号：AT+SPIMEI=0,&amp;#34;要修改的IMEI&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;查询串号：AT+SPIMEI?
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>
